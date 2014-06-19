@@ -16,20 +16,21 @@ class Person {
 		} else {
 			this.first_name = first_name;
 		}
+		this.last_name = last_name;
 		age = 0;
 	}
 
 	// constructor with 3 parameters with simple age validation
 	public Person(String first_name, String last_name, int age) {
 		this(first_name, last_name);
-		if(age > 0) {
-			if(age > 100) {
-				age = 100;
+		if(age >= 0) {
+			if(age >= 100) {
+				this.age = 100;
 			} else {
 				this.age = age;
 			}
 		} else {
-			age = 0;
+			this.age = 0;
 		}
 	}
 
