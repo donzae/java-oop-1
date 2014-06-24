@@ -6,7 +6,7 @@ public class Student extends Person {
 
 	// constructor w/o parameters
 	public Student() {
-		super();
+		super(); // call parent constructor
 		id_no = 0;
 		year_level = 0;
 	}
