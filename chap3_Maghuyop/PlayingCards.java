@@ -1,3 +1,9 @@
+// ************************************************************
+// PlayingCards.java
+//
+// Simple card values and display
+// ************************************************************
+
 class PlayingCards {
 
 	// rank values

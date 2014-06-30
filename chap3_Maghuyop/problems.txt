@@ -7,56 +7,80 @@ Math Class 						Computing Distance			Distance
 Enumerated Types 			Playing with Cards			PlayingCards
 
 
-Rolling Dice
+> Rolling Dice
 
-Write a complete Java program that simulates the rolling of a pair of dice. For each die in the pair, the program should generate a random number between 1 and 6 (inclusive). It should print out the result of the roll for each die and the total roll (the sum of the two dice), all appropriately labeled. You must use the Random class.
+Write a complete Java program that simulates the rolling of a pair of dice.
+For each die in the pair, the program should generate a random number between
+1 and 6 (inclusive). It should print out the result of the roll for each die
+and the total roll (the sum of the two dice), all appropriately labeled.
+You must use the Random class.
 
-Computing Distance
-The file Distance.java contains an incomplete program to compute the distance between two points. Recall that the distance between the two points (x1, y1) and (x2, y2) is computed by taking the square root of the quantity (x1 - x2)2 + (y1 - y2)2. The program already has code to get the two points as input. You need to add an assignment statement to compute the distance and then a print statement to print it out (appropriately labeled). Test your program using the following data: The distance between the points (3, 17) and (8, 10) is 8.6023... (lots more digits printed); the distance between (-33,49) and (-9, -15) is 68.352.
+
+> Computing Distance
+
+The file Distance.java contains an incomplete program to compute the distance
+between two points. Recall that the distance between the two points (x1, y1)
+and (x2, y2) is computed by taking the square root of the quantity
+(x1 - x2)2 + (y1 - y2)2. The program already has code to get the two points as input.
+You need to add an assignment statement to compute the distance and then a print
+statement to print it out (appropriately labeled). Test your program using the
+following data: The distance between the points (3, 17) and (8, 10) is 8.6023...
+(lots more digits printed); the distance between (-33,49) and (-9, -15) is 68.352.
+
 
 // ************************************************************
 // Distance.java
 //
 // Computes the distance between two points
 // ************************************************************
+
 import java.util.Scanner;
-public class Distance
-{
-public static void main (String[] args)
-{
-double x1, y1, x2, y2; // coordinates of two points
-double distance; // distance between the points
-Scanner scan = new Scanner(System.in);
-// Read in the two points
-System.out.print ("Enter the coordinates of the first point " +
-"(put a space between them): ");
-x1 = scan.nextDouble();
-y1 = scan.nextDouble();
-System.out.print ("Enter the coordinates of the second point: ");
-y2 = scan.nextDouble();
-// Compute the distance
-// Print out the answer
-}
+
+public class Distance {
+
+	public static void main (String[] args) {
+
+		double x1, y1, x2, y2; // coordinates of two points
+		double distance; // distance between the points
+
+		Scanner scan = new Scanner(System.in);
+
+		// Read in the two points
+		System.out.print ("Enter the coordinates of the first point " +
+		"(put a space between them): ");
+		x1 = scan.nextDouble();
+		y1 = scan.nextDouble();
+
+		System.out.print ("Enter the coordinates of the second point: ");
+		y2 = scan.nextDouble();
+		// Compute the distance
+		// Print out the answer
+
+	}
 }
 
 > Playing With Cards
 
-Write a class that defines an enumerated type named Rank with values ace, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king. The main method should do the following:
+Write a class that defines an enumerated type named Rank with values ace, two, three,
+four, five, six, seven, eight, nine, ten, jack, queen, king. The main method should
+do the following:
 
 1. Declare variables highCard, faceCard, card1, and card2 of type Rank.
 
-2. Assign highCard to be an ace, faceCard to be a jack, queen or king (your choice), and card1 and card2 to be two different numbered cards (two through ten - your choice).
+2. Assign highCard to be an ace, faceCard to be a jack, queen or king (your choice),
+and card1 and card2 to be two different numbered cards (two through ten - your choice).
 
 3. Print a line, using the highCard and faceCard objects, in the following format:
 A blackjack hand: ace and ....
 The faceCard variable should be printed instead of the dots.
 
-4. Declare two variables card1 Val and card2Val of type int and assign them the face value of your card1 and card2
-objects. Use your card1 and card2 variables and the ordinal method associated with enumerated types. Remember
-that the face value of two is 2, three is 3, and so on so you need to make a slight adjustment to the ordinal value of
-the enumerated type.
+4. Declare two variables card1 Val and card2Val of type int and assign them the face value
+of your card1 and card2 objects. Use your card1 and card2 variables and the ordinal method
+associated with enumerated types. Remember that the face value of two is 2, three is 3, and
+so on so you need to make a slight adjustment to the ordinal value of the enumerated type.
 
 5. Print two lines, using the card1 and card2 objects and the name method, as follows:
+
 A two card hand: (print card1 and card2)
 Hand value: (print the sum of the face values of the two cards)
 
