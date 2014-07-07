@@ -1,0 +1,304 @@
+Bank Account
+
+1.  File Account.java contains a partial definition for a class representing a bank account.
+		Save it to your directory and study it to see what methods it contains.
+		Then complete the Account class as described below.
+		Note that you won’t be able to test your methods until you write ManageAccounts in question #2.
+
+	a.  Fill in the code for method toString, which should return a string containing the name,
+			account number, and balance for the account.
+
+	b.  Fill in the code for method chargeFee, which should deduct a service fee from the account.
+
+	c.  Modify chargeFee so that instead of returning void, it returns the new balance.
+			Note that you will have to make changes in two places.
+
+	d.  Fill in the code for method changeName which takes a string as a parameter and changes the
+			name on the account to be that string.
+
+2.	File ManageAccounts.java contains a shell program that uses the Account class above.
+		Save it to your directory, and complete it as indicated by the comments.
+
+3.	Modify ManageAccounts so that it prints the balance after the calls to chargeFees.
+		Instead of using the getBalance method like you did after the deposit and withdrawal,
+		use the balance that is returned from the chargeFees method.
+		You can either store it in a variable and then print the value of the variable,
+		or embed the method call in a println statement.
+
+
+
+// *******************************************************
+// Account.java
+//
+// A bank account class with methods to deposit to, withdraw from,
+// change the name on, charge a fee to, and print a summary of the account.
+// *******************************************************
+
+public class Account {
+
+	private double balance; private String name; private long acctNum;
+
+	// ---------------------------------------------
+	//Constructor -- initializes balance, owner, and account number
+	// --------------------------------------------
+	public Account(double initBal, String owner, long number) {
+		balance = initBal; name = owner; acctNum = number;
+	}
+
+	// --------------------------------------------
+	// Checks to see if balance is sufficient for withdrawal.
+	// If so, decrements balance by amount; if not, prints message.
+	// --------------------------------------------
+	public void withdraw(double amount) {
+		if (balance >= amount) {
+			balance -= amount;
+		} else {
+			System.out.println("Insufficient funds");
+		}
+	}
+
+
+	// --------------------------------------------
+	//	Adds deposit amount	to balance.
+	// --------------------------------------------
+	public void deposit(double amount) {
+		balance += amount;
+	}
+
+	// --------------------------------------------
+	// Returns balance.
+	// --------------------------------------------
+	public double getBalance() {
+		return balance;
+	}
+
+	// --------------------------------------------
+	// Returns a string containing the name, account number, and balance.
+	// --------------------------------------------
+	public String toString() {
+
+	}
+
+	// --------------------------------------------
+	// Deducts $10 service fee //
+	// --------------------------------------------
+	public void chargeFee() {
+
+	}
+
+	// --------------------------------------------
+	// Changes the name on the account
+	// --------------------------------------------
+	public void changeName(String newName) {
+
+	}
+}
+
+
+//	ManageAccounts.java
+//
+//	Use Account class to create and manage Sally and Joe's
+//	bank accounts
+// ************************************************************
+
+public class ManageAccounts {
+
+	public static void main(String[] args) {
+
+		Account acct1, acct2;
+
+		//create account1 for Sally with $1000 acct1 = new Account(1000, "Sally", 1111);
+
+		//create account2 for Joe with $500
+
+		//deposit $100 to Joe's account
+
+		//print Joe's new balance (use getBalance())
+
+		//withdraw $50 from Sally's account
+
+		//print Sally's new balance (use getBalance())
+
+		//charge fees to both accounts
+
+		//change the name on Joe's account to Joseph
+
+		//print summary for both accounts
+	}
+}
+
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+
+Tracking Grades
+
+
+A teacher wants a program to keep track of grades for students and decides to create a student
+class for his program as follows:
+
+Each student will be described by three pieces of data: his/her name, his/her score on test #1,
+and his/her score on test#2. There will be one constructor, which will have one argument—the
+name of the student. There will be three methods: getName, which will return the student’s name;
+inputGrades, which will prompt for and read in the student’s test grades;
+and getAverage, which will compute and return the student’s average.
+
+1.	File Student.java contains an incomplete definition for the Student class.
+		Save it to your directory and complete the class definition as follows:
+
+	a.	Declare the instance data (name, score for test1, and score for test2).
+	b.	Create a Scanner object for reading in the scores.
+	c.	Add the missing method headers. d.	Add the missing method bodies.
+
+2.	File Grades.java contains a shell program that declares two Student objects.
+		Save it to your directory and use the inputGrades method to read in each student’s
+		test scores, then use the getAverage method to find their average.
+		Print the average with the student’s name, e.g., “The average for Joe is 87.”
+		You can use the getName method to print the student’s name.
+
+3.	Add statements to your Grades program that print the values of your Student variables directly, e.g.:
+
+System.out.println("Student 1: " + student1);
+
+
+This should compile, but notice what it does when you run it—nothing very useful!
+When an object is printed, Java looks for a toString method for that object.
+This method must have no parameters and must return a String. If such a method
+has been defined for this object, it is called and the string it returns is printed.
+Otherwise the default toString method, which is inherited from the Object class, is called;
+it simply returns a unique hexadecimal identifier for the object such as the ones you saw above.
+
+Add a toString method to your Student class that returns a string containing the student’s
+name and test scores, e.g.:
+
+Name:	Joe	Test1:	85	Test2:	91
+
+
+Note that the toString method does not call System.out.println—it just returns a string.
+
+
+Recompile your Student class and the Grades program (you shouldn’t have to change the Grades
+program—you don’t have to call toString explicitly). Now see what happens when you print a student
+object—much nicer!
+
+//	Student.java
+//
+//	Define a student class that stores name, score on test 1, and
+//	score on test 2.	Methods prompt for and read in grades,
+//	compute the average, and return a string containing student's info.
+// ************************************************************
+
+import java.util.Scanner;
+
+public class Student {
+
+	//declare instance data
+
+	// ---------------------------------------------
+	//constructor
+	// ---------------------------------------------
+	public Student(String studentName) {
+		//add body of constructor
+	}
+
+	// ---------------------------------------------
+	//inputGrades: prompt for and read in student's grades for test1 and test2.
+	//Use name in prompts, e.g., "Enter's Joe's score for test1".
+	// ---------------------------------------------
+	public void inputGrades() {
+		//add body of inputGrades
+	}
+
+	// ---------------------------------------------
+	//getAverage: compute and return the student's test average
+	// ---------------------------------------------
+
+	//add header for getAverage
+	{
+		//add body of getAverage
+	}
+
+	// ---------------------------------------------
+	//getName: print the student's name
+	// ---------------------------------------------
+
+	//add header for printName
+	{
+
+		//add body of printName
+	}
+}
+
+
+// ************************************************************
+//	Grades.java
+//
+//	Use Student class to get test grades for two students
+//	and compute averages
+//
+// ************************************************************
+
+public class Grades {
+
+	public static void main(String[] args) {
+
+		Student student1 = new Student("Mary");
+		//create student2, "Mike"
+
+		//input grades for Mary
+		//print average for Mary
+
+		System.out.println();
+
+		//input grades for Mike
+		//print average for Mike
+	}
+}
+
+
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+
+
+Representing Names
+
+1.	Write a class Name that stores a person’s first, middle, and last names and provides the following methods:
+
+		public Name(String first, String middle, String last) — constructor.
+																														The name should be stored in the case given;
+																														don’t convert to all upper or lower case.
+		public String getFirst() — returns the first name
+		public String getMiddle() — returns the middle name
+		public String getLast() — returns the last name
+
+    public String firstMiddleLast() — returns a string containing the person’s full
+    																	name in order, e.g., “Mary Jane Smith”.
+
+    public String lastFirstMiddle() — returns a string containing the person’s full name with
+    																	the last name first followed by a comma, e.g., “Smith, Mary Jane”.
+
+		public boolean equals(Name otherName) — returns true if this name is the same as otherName.
+																						Comparisons should not be case sensitive.
+																						(Hint: There is a String method equalsIgnoreCase that
+																						is just like the String method equals except it does not
+																						consider case in doing its comparison.)
+
+		public String initials() — returns the person’s initials (a 3-character string).
+															 The initials should be all in upper case, regardless of what case
+															 the name was entered in. (Hint: Instead of using charAt, use the substring
+															 method of String to get a string containing only the first letter—then you
+															 can upcase this one-letter string. See Figure 3.1 in the text for a description
+															 of the substring method.)
+
+		public int length() — returns the total number of characters in the full name, not including spaces.
+
+2.	Now write a program TestNames.java that prompts for and reads in two names from the user
+		(you’ll need first, middle, and last for each), creates a Name object for each, and uses the methods
+		of the Name class to do the following:
+
+	a.	For each name, print first - middle - last version last - first - middle version initials length
+
+	b.	Tell whether or not the names are the same.
+
+
