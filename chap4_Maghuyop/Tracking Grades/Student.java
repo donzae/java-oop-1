@@ -10,7 +10,8 @@ import java.util.Scanner;
 public class Student {
 
 	//declare instance data
-	private float average, score1, score2;
+	private int score1, score2;
+	private float average;
 	private String name;
 
 	// ---------------------------------------------
@@ -30,10 +31,10 @@ public class Student {
 	public void inputGrades() {
 		//add body of inputGrades
 		System.out.print("Enter's " + name + "'s score for test1: ");
-    score1 = scan.nextFloat();
+    score1 = scan.nextInt();
 
 		System.out.print("Enter's " + name + "'s score for test2: ");
-    score2 = scan.nextFloat();
+    score2 = scan.nextInt();
 	}
 
 	// ---------------------------------------------
