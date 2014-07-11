@@ -44,7 +44,7 @@ public class Student {
 	//add header for getAverage
 	public float getAverage() {
 		//add body of getAverage
-		return average = (score1 + score2) / 2;
+		return average = (float)(score1 + score2) / 2;
 	}
 
 	// ---------------------------------------------
