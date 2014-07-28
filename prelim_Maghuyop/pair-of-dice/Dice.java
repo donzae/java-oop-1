@@ -10,16 +10,20 @@ public class Dice {
 
 	// constructor
 	Dice() {
-		rollDice();
+		roll();
 	}
 
 	// methods
-	public void rollDice() {
+	public void roll() {
 		dice = generator.nextInt(6) + 1;
 	}
 
-	public int getDiceValue() {
+	public int getValue() {
 		return dice;
+	}
+
+	public void setValue(int value) {
+		dice = value;
 	}
 
 	// to string

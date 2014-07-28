@@ -1,4 +1,4 @@
-public class RollingDice2 {
+public class RollingDice2 extends PairOfDice {
 	public static void main(String[] args) {
 		// create object
 		PairOfDice pair_dice_1 = new PairOfDice();

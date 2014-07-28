@@ -1,61 +1,36 @@
-import java.util.Random;
-
-public class PairOfDice {
+public class PairOfDice extends Dice {
 	// instance variable
-	int dice1, dice2, sum;
-
-	// random object
-	Random generator = new Random();
+	Dice dice1 = new Dice();
+	Dice dice2 = new Dice();
+	int sum;
 
 	// constructor
 	PairOfDice() {
-		rollDice1();
-		rollDice2();
-	}
-
-	// roll dice 1
-	public void rollDice1() {
-		dice1 = generator.nextInt(6) + 1;
-	}
-
-	// roll dice 2
-	public void rollDice2() {
-		dice2 = generator.nextInt(6) + 1;
+		dice1.roll();
+		dice2.roll();
 	}
 
 	// roll both dice
 	public void rollBothDice() {
-		rollDice1();
-		rollDice2();
+		dice1.roll();
+		dice2.roll();
 	}
 
-	// get value of dice 1
-	public int getDice1Val() {
-		return dice1;
+	// get sum of 2 dice
+	public int getSum() {
+		return dice1.getValue() + dice2.getValue();
 	}
 
-	// get value of dice 2
-	public int getDice2Val() {
-		return dice2;
-	}
-
-  // get sum of 2 dice
-  public int getSum() {
-  	return dice1 + dice2;
-  }
-
-	// set value of dice 1
 	public void setDice1Val(int value) {
-		dice1 = value;
+		dice1.setValue(value);
 	}
 
-	// set value of dice 2
 	public void setDice2Val(int value) {
-		dice2 = value;
+		dice2.setValue(value);
 	}
 
 	// to string
 	public String toString() {
-		return "Dice 1: " + dice1 + "\nDice 2: " + dice2 + "\nSum: " + getSum();
+		return "Dice 1: " + dice1.getValue() + "\nDice 2: " + dice2.getValue() + "\nSum: " + getSum();
 	}
 }
