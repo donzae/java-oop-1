@@ -1,0 +1,122 @@
+PROJECT NAME: Chap5_LastnameOfTheStudent
+
+Powers of 2
+
+File PowersOf2.java contains a skeleton of a program to read in an integer from the user and print out that many powers of 2, starting with 20.
+
+1. Using the comments as a guide, complete the program so that it prints out the number of powers of 2 that the user requests. Do not use Math.pow to compute the powers of 2! Instead, compute each power from the previous one (how do you get 2n from 2n–1?). For
+
+example, if the user enters 4, your program should print this:
+Here are the first 4 powers of 2:
+1
+2
+4
+8
+
+2. Modify the program so that instead of just printing the powers, you print which power each is, e.g.:
+Here are the first 4 powers of 2:
+2^0 = 1
+2^1 = 2
+2^2 = 4
+2^3 = 8
+
+// ************************************************************
+// PowersOf2.java
+//
+// Print out as many powers of 2 as the user requests
+//
+// ************************************************************
+import java.util.Scanner;
+public class PowersOf2
+{
+	public static void main(String[] args)
+	{
+		int numPowersOf2; //How many powers of 2 to compute
+		int nextPowerOf2 = 1; //Current power of 2
+		int exponent; //Exponent for current power of 2 -- this
+		//also serves as a counter for the loop Scanner
+		scan = new Scanner(System.in);
+		System.out.println("How many powers of 2 would you like printed?");
+		numPowersOf2 = scan.nextInt();
+
+		//print a message saying how many powers of 2 will be printed
+		//initialize exponent -- the first thing printed is 2 to the what?
+		while ( )
+		{
+			//print out current power of 2
+			//find next power of 2 -- how do you get this from the last one?
+			//increment exponent
+		}
+	}
+}
+
+
+Baseball Statistics
+The local Kids’ League coach keeps some of the baseball team statistics in a text file organized as follows: each line of the file contains the name of the player followed by a list of symbols indicating what happened on each at bat for the player. The letter h indicates a hit, o an out, w a walk, and s a sacrifice fly. Each item on the line is separated by a comma. There are no blank spaces except in the player name. So, for example the file could look as follows:
+Sam Slugger,h,h,o,s,w,w,h,w,o,o,o,h,s
+Jill Jenks,o,o,s,h,h,o,o
+Will Jones,o,o,w,h,o,o,o,o,w,o,o
+
+The file BaseballStats.java contains the skeleton of a program that reads and processes a file in this format. Study the program and note that three Scanner objects are declared.
+One scanner (scan) is used to read in a file name from standard input.
+The file name is then used to create a scanner (fileScan) to operate on that file.
+A third scanner (lineScan) will be used to parse each line in the file.
+Also note that the main method throws an IOException. This is needed in case there is a problem opening the file.
+
+Complete the program as follows:
+First add a while loop that reads each line in the file and prints out each part (name, then each at bat, without the commas) in a way similar to the URLDissector program in Listing 5.10 of the text. In particular inside the loop you need to
+read the next line from the file
+create a comma delimited scanner (lineScan) to parse the line
+read and print the name of the player, and finally,
+have a loop that prints each at bat code.
+Compile and run the program to be sure it works.
+Now modify the inner loop that parses a line in the file so that instead of printing each part it counts (separately) the number of hits, outs, walks, and sacrifices. Each of these summary statistics, as well as the batting average, should be printed for each player. Recall that the batting average is the number of hits divided by the total number of hits and outs.
+Test the program on the file stats1.dat and stats2.dat .
+
+
+// ****************************************************************
+// BaseballStats.java
+//
+// Reads baseball data in from a comma delimited file. Each line
+// of the file contains a name followed by a list of symbols
+// indicating the result of each at bat: h for hit, o for out,
+// w for walk, s for sacrifice. Statistics are computed and
+// printed for each player.
+// ****************************************************************
+import java.util.Scanner;
+import java.io.*;
+public class BaseballStats
+{
+//-------------------------------------------------
+// Reads baseball stats from a file and counts
+// total hits, outs, walks, and sacrifice flies
+// for each player.
+//-------------------------------------------------
+public static void main (String[] args) throws IOException
+{
+Scanner fileScan, lineScan;
+String fileName;
+Scanner scan = new Scanner(System.in);
+System.out.print ("Enter the name of the input file: ");
+fileName = scan.nextLine();
+fileScan = new Scanner(new File(fileName));
+// Read and process each line of the file
+}
+}
+
+
+stats1.dat
+Willy Wonk,o,o,h,o,o,o,o,h,w,o,o,o,o,s,h,o,h
+Shari Jones,h,o,o,s,s,h,o,o,o,h,o,o,o,o
+Barry Bands,h,h,w,o,o,o,w,h,o,o,h,h,o,o,w,w,w,h,o,o
+Sally Slugger,o,h,h,o,o,h,h,w
+Missy Lots,o,o,s,o,o,w,o,o,o
+Joe Jones,o,h,o,o,o,o,h,h,o,o,o,o,w,o,o,o,h,o,h,h
+Larry Loop,w,s,o,o,o,h,o,o,h,s,o,o,o,h,h
+Sarah Swift,o,o,o,o,h,h,w,o,o,o
+Bill Bird,h,o,h,o,h,w,o,o,o,h,s,s,h,o,o,o,o,o,o
+Don Daring,o,o,h,h,o,o,h,o,h,o,o,o,o,o,o,h
+Jill Jet,o,s,s,h,o,o,h,h,o,o,o,h,o,h,w,o,o,h,h,o
+
+stats2.dat
+Barry Bands,h,h,w,o,o,o,w,h,o,o,h,h,o,o,w,w,w,h,o,o
