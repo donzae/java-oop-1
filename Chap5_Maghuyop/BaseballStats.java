@@ -40,8 +40,9 @@ public class BaseballStats {
 			// String player = lineScan[0];
 
 			// Print each part of the line
-			String letter;
+			String letter, player_name;
 			int hits = 0, outs = 0, walks = 0, sacrifice_flies = 0;
+			player_name = lineScan.next();
 			float batting_average = 0;
 			while (lineScan.hasNext()) {
 				letter = lineScan.next();
@@ -73,6 +74,7 @@ public class BaseballStats {
 
 			// print player statistics
 			// System.out.println("Player: " + player);
+			System.out.println("Player: " + player_name);
 			System.out.println("Hits  : " + hits);
 			System.out.println("Outs  : " + outs);
 			System.out.println("Walks : " + walks);
