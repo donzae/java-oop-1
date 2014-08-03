@@ -10,6 +10,7 @@
 
 import java.util.Scanner;
 import java.io.*;
+import java.text.DecimalFormat;
 
 public class BaseballStats {
 	//-------------------------------------------------
@@ -19,6 +20,9 @@ public class BaseballStats {
 	//-------------------------------------------------
 
 	public static void main (String[] args) throws IOException {
+		// decimal format object
+		DecimalFormat fmt = new DecimalFormat("0.##");
+
 		Scanner fileScan, lineScan;
 		String fileName;
 
@@ -79,7 +83,7 @@ public class BaseballStats {
 			System.out.println("Outs  : " + outs);
 			System.out.println("Walks : " + walks);
 			System.out.println("Sacrifies flies : " + sacrifice_flies);
-			System.out.println("Batting average: " + batting_average);
+			System.out.println("Batting average: " + fmt.format(batting_average));
 			System.out.println("");
 		}
 	}
