@@ -1,0 +1,71 @@
+Dates.java
+
+Date Validation
+
+In this exercise you will write a program that checks to see if a date entered by the
+user is a valid date in the second millenium.
+A skeleton of the program is in Dates.java.
+Open this program and save it to your directory.
+As indicated by the comments in the program, fill in the following:
+
+An assignment statement that sets monthValid to true
+	if the month entered is between 1 and 12, inclusive.
+
+An assignment statement that sets yearValid to true
+	if the year is between 1000 and 1999, inclusive.
+
+An assignment statement that sets leap Year to true
+	if the year is a leap year. Here is the leap year rule
+	(there’s more to it than you may have thought!):
+
+If the year is divisible by 4, it’s a leap year
+	UNLESS it’s divisible by 100, in which case it’s not a leap year
+	UNLESS it’s divisible by 400, in which case it is a leap year.
+	If the year is not divisible by 4, it’s not a leap year.
+
+Put another way, it’s a leap year if
+	a) it’s divisible by 400, or
+	b) it’s divisible by 4 and it’s not divisible by 100.
+		So 1600 and 1512 are leap years, but 1700 and 1514 are not.
+
+An if statement that determines the number of days in the month entered
+and stores that value in variable daysInMonth.
+
+If the month entered is not valid, daysInMonth should get 0.
+
+Note that to figure out the number of days in February you’ll
+need to check if it’s a leap year.
+
+An assignment statement that sets dayValid to true
+if the day entered is legal for the given month and year.
+
+If the month, day, and year entered are all valid,
+
+print “Date is valid” and indicate whether or not it is a leap year.
+If any of the items entered is not valid,
+just print “Date is not valid” without any comment on leap year.
+
+// ************************************************************
+// Dates.java
+//
+// Determine whether a 2nd-millenium date entered by the user
+// is valid
+// ************************************************************
+import java.util.Scanner;
+public class Dates {
+	public static void main(String[] args) {
+		int month, day, year; //date read in from user
+		int daysInMonth; //number of days in month read in
+		boolean monthValid, yearValid, dayValid; //true if input from user is valid
+		boolean leapYear; //true if user's year is a leap year
+		Scanner scan = new Scanner(System.in);
+
+		//Get integer month, day, and year from user
+		//Check to see if month is valid
+		//Check to see if year is valid
+		//Determine whether it's a leap year
+		//Determine number of days in month
+		//User number of days in month to check to see if day is valid
+		//Determine whether date is valid and print appropriate message
+	}
+}

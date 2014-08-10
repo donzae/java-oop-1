@@ -1,0 +1,95 @@
+Temps.java
+
+Finding Maximum and Minimum Values
+
+A common task that must be done in a loop is to find the maximum and minimum
+of a sequence of values. The file Temps.java contains a program that reads
+in a sequence of hourly temperature readings over a 24-hour period.
+You will be adding code to this program to find the maximum and minimum temperatures.
+Do the following:
+
+Save the file to your directory, open it and see what’s there.
+Note that a for loop is used since we need a count-controlled loop.
+Your first task is to add code to find the maximum temperature read in.
+In general to find the maximum of a sequence of values processed in a loop you
+need to do two things:
+
+You need a variable that will keep track of the maximum of the values processed so far.
+This variable must be initialized before the loop.
+There are two standard techniques for initialization:
+one is to initialize the variable to some value smaller than any possible
+value being processed;
+another is to initialize the variable to the first value processed.
+In either case, after the first value is processed the maximum variable
+should contain the first value.
+For the temperature program declare a variable maxTemp to hold the maximum temperature.
+Initialize it to -1000 (a value less than any legitimate temperature).
+The maximum variable must be updated each time through the loop.
+This is done by comparing the maximum to the current value being processed.
+If the current value is larger, then the current value is the new maximum.
+So, in the temperature program, add an if statement inside the loop to compare
+the current temperature read in to maxTemp. If the current temperature is larger
+set maxTemp to that temperature. NOTE: If the current temperature is NOT larger,
+DO NOTHING!
+
+Add code to print out the maximum after the loop.
+Test your program to make sure it is correct.
+Be sure to test it on at least three scenarios:
+the first number read in is the maximum,
+the last number read in is the maximum,
+and the maximum occurs somewhere in the middle of the list.
+
+For testing purposes you may want to change the HOURS_PER_DAY variable
+to something smaller than 24 so you don’t have to type in so many numbers!
+Often we want to keep track of more than just the maximum. For example,
+if we are finding the maximum of a sequence of test grades we might want
+to know the name of the student with the maximum grade. Suppose for the
+temperatures we want to keep track of the time (hour) the maximum temperature occurred.
+To do this we need to save the current value of the hour variable when we update the
+maxTemp variable. This of course requires a new variable to store the time (hour) that
+the maximum occurs. Declare timeOfMax (type int) to keep track of the time (hour)
+the maximum temperature occurred. Modify your if statement so that in addition to
+updating maxTemp you also save the value of hour in the timeOfMax variable.
+(WARNING: you are now doing TWO things when the if condition is TRUE.)
+Add code to print out the time the maximum temperature occurred along with the maximum.
+Finally, add code to find the minimum temperature and the time that temperature occurs.
+The idea is the same as for the maximum. NOTE: Use a separate if when updating the
+minimum temperature variable (that is, don’t add an else clause to the if that is
+already there).
+
+// ************************************************************
+// Temps.java
+//
+// This program reads in a sequence of hourly temperature
+// readings (beginning with midnight) and prints the maximum
+// temperature (along with the hour, on a 24-hour clock, it
+// occurred) and the minimum temperature (along with the hour
+// it occurred).
+// ************************************************************
+
+import java.util.Scanner;
+
+public class Temps {
+	// --------------------------------------------------
+	// Reads in a sequence of temperatures and finds the
+	// maximum and minimum read in.
+	// --------------------------------------------------
+	public static void main (String[] args) {
+		final int HOURS_PER_DAY = 24;
+		int temp; // a temperature reading
+
+		Scanner scan = new Scanner(System.in);
+
+		// print program heading
+		System.out.println ();
+		System.out.println ("Temperature Readings for 24 Hour Period");
+		System.out.println ();
+
+		for (int hour = 0; hour < HOURS_PER_DAY; hour++) {
+			System.out.print ("Enter the temperature reading at " + hour + " hours: ");
+			temp = scan.nextInt();
+		}
+
+		// Print the results
+	}
+}

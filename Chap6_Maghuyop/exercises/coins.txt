@@ -1,0 +1,84 @@
+Using the Coin Class
+
+The Coin class from Listing 4.2 in the text is in the file Coin.java.
+Copy it to your directory, then write a program to find the length of the
+longest run of heads in 100 flips of the coin.
+
+A skeleton of the program is in the file Runs.java.
+To use the Coin class you need to do the following in the program:
+Create a coin object.
+Inside the loop, you should use the flip method to flip the coin,
+the toString method (used implicitly) to print the results of the flip,
+and the getFace method to see if the result was HEADS.
+Keeping track of the current run length (the number of times in a row that
+the coin was HEADS) and the maximum run length is an exercise in loop techniques!
+
+3. Print the result after the loop.
+
+// *******************************************************************
+// Coin.java
+//
+// Represents a coin with two sides that can be flipped.
+// *******************************************************************
+public class Coin {
+	public final int HEADS = 0;
+	public final int TAILS = 1;
+	private int face;
+
+	// ---------------------------------------------
+	// Sets up the coin by flipping it initially.
+	// ---------------------------------------------
+	public Coin () {
+		flip();
+	}
+
+	// -----------------------------------------------
+	// Flips the coin by randomly choosing a face.
+	// -----------------------------------------------
+	public void flip() {
+		face = (int) (Math.random() * 2);
+	}
+
+	// ---------------------------------------------------------
+	// Returns true if the current face of the coin is heads.
+	// ---------------------------------------------------------
+	public boolean isHeads() {
+		return (face == HEADS);
+	}
+
+	// ----------------------------------------------------
+	// Returns the current face of the coin as a string.
+	// ----------------------------------------------------
+	public String toString() {
+		String faceName;
+		if (face == HEADS) {
+			faceName = "Heads";
+		} else{
+			faceName = "Tails";
+		}
+		return faceName;
+	}
+}
+
+
+// ******************************************************************
+// Runs.java
+//
+// Finds the length of the longest run of heads in 100 flips of a coin.
+// *******************************************************************
+public class Run {
+	public static void main (String[] args) {
+		final int FLIPS = 100; 	// number of coin flips
+		int currentRun  = 0; 	// length of the current run of HEADS
+		int maxRun      = 0; 	// length of the maximum run so far
+
+		// Create a coin object
+		// Flip the coin FLIPS times
+		for (int i = 0; i < FLIPS; i++) {
+			// Flip the coin & print the result
+			// Update the run information
+		}
+
+		// Print the results
+	}
+}

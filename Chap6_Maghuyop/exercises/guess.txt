@@ -1,0 +1,30 @@
+Guess.java
+
+More Guessing
+
+File Guess.java contains the skeleton for a program that uses
+a while loop to play a guessing game.
+(This problem is described in the previous lab exercise.)
+Revise this program so that it uses a do ... while loop
+rather than a while loop. The general outline using a do... while loop
+is as follows:
+
+// set up (initializations of the counting variables)
+....
+
+do {
+	// read in a guess
+	...
+	// check the guess and print appropriate messages
+	...
+} while ( condition );
+
+A key difference between a while and a do... while loop to
+note when making your changes is that the body of the
+do ... while loop is executed before the condition is ever tested.
+In the while loop version of the program,
+it was necessary to read in the user’s
+first guess before the loop so there would be a value
+for comparison in the condition.
+In the do... while this “priming” read is no longer needed.
+The user’s guess can be read in at the beginning of the body of the loop.
