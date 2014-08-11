@@ -22,22 +22,34 @@ public class Activities {
 		}
 
 		// show approriate activity
+		int type = 0;
 		if(critical) {
-			System.out.println("Visit our shops!");
+			type = 0;
 		} else {
 			if((temp >= 80) || (temp < 80)) {
+				type = 1;
 				activity = "Swimming";
 				if(60 >= temp) {
+					type = 2;
 					activity = "Tennis";
 					if(40 >= temp) {
+						type = 3;
 						activity = "Golf";
 						if(temp < 40) {
+							type = 4;
 							activity = "Skiing";
 						}
 					}
 				}
 			}
-			System.out.println("Activity : " + activity);
+		}
+
+		switch(type) {
+			case 0: System.out.println("Visit our shops!"); break;
+			case 1: System.out.println("Activity : " + activity); break;
+			case 2: System.out.println("Activity : " + activity); break;
+			case 3: System.out.println("Activity : " + activity); break;
+			case 4: System.out.println("Activity : " + activity); break;
 		}
 	}
 }
