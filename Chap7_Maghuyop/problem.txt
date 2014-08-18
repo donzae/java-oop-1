@@ -1,0 +1,181 @@
+Chapter 7: Object-oriented Design Lab Exercises
+
+PROJECT NAME in BlueJ: Chap7_LastnameOfTheStudent
+
+Topics Lab Exercises Filenames Date Given Date Due
+
+Static Variables and Methods Opening and Closing Accounts
+
+Counting Transactions
+
+Transferring Funds Account.java
+
+ProcessTransactions.java Aug. 11, ‘13 Aug. 18, ‘13
+
+//************************************************************
+// Account.java
+//
+// A bank account class with methods to deposit to, withdraw from,
+// change the name on, and get a String representation
+// of the account.
+//************************************************************
+
+public class Account {
+	private double balance;
+	private String name;
+	private long acctNum;
+
+	//-------------------------------------------------
+	//Constructor -- initializes balance, owner, and account number
+	//-------------------------------------------------
+	public Account(double initBal, String owner, long number) {
+		balance = initBal;
+		name = owner;
+		acctNum = number;
+	}
+
+	//-------------------------------------------------
+	// Checks to see if balance is sufficient for withdrawal.
+	// If so, decrements balance by amount; if not, prints message.
+	//-------------------------------------------------
+	public void withdraw(double amount) {
+		if (balance >= amount)
+			balance -= amount;
+		else
+			System.out.println("Insufficient funds");
+	}
+
+	//-------------------------------------------------
+	// Adds deposit amount to balance.
+	//-------------------------------------------------
+	public void deposit(double amount) {
+		balance += amount;
+	}
+
+	//-------------------------------------------------
+	// Returns balance.
+	//-------------------------------------------------
+	public double getBalance() {
+		return balance;
+	}
+
+	//-------------------------------------------------
+	// Returns a string containing the name, account number, and balance.
+	//-------------------------------------------------
+	public String toString() {
+		return "Name:" + name +
+		"\nAccount Number: " + acctNum +
+		"\nBalance: " + balance;
+	}
+}
+
+Counting Transactions
+
+File Account.java  contains a definition for a simple bank account class with
+methods to withdraw, deposit, get the balance and account number, and return
+a String representation. Note that the constructor for this class creates a
+random account number. Save this class to your directory and study it to see
+how it works.
+
+Now modify it to keep track of the total number of deposits and withdrawals
+(separately) for each day, and the total amount deposited and withdrawn.
+Write code to do this as follows:
+
+Add four private static variables to the Account class, one to keep track of
+each value above (number and total amount of deposits, number and total of
+withdrawals). Note that since these variables are static, all of the Account
+objects share them. This is in contrast to the instance variables that hold
+the balance, name, and account number; each Account has its own copy of these.
+Recall that numeric static and instance variables are initialized to 0 by default.
+Add public methods to return the values of each of the variables you just added,
+e.g., public static int getNumDeposits().
+
+Modify the withdraw and deposit methods to update the appropriate static variables
+at each withdrawal and deposit File ProcessTransactions.java contains a program
+that creates and initializes two Account objects and enters a loop that allows the
+user to enter transactions for either account until asking to quit. Modify this program
+as follows:
+
+After the loop, print the total number of deposits and withdrawals and the total
+amount of each. You will need to use the Account methods that you wrote above.
+Test your program. Imagine that this loop contains the transactions for a single day.
+Embed it in a loop that allows the transactions to be recorded and counted for many days.
+At the beginning of each day print the summary for each account, then have the user
+enter the transactions for the day. When all of the transactions have been entered,
+print the total numbers and amounts (as above), then reset these values to 0 and repeat
+for the next day. Note that you will need to add methods to reset the variables holding
+the numbers and amounts of withdrawals and deposits to the Account class.
+Think: should these be static or instance methods?
+
+//************************************************************
+// ProcessTransactions.java
+//
+// A class to process deposits and withdrawals for two bank
+// accounts for a single day.
+//************************************************************
+
+import java.util.Scanner;
+
+public class ProcessTransactions {
+	public static void main(String[] args) {
+
+		Account acct1, acct2; //two test accounts
+
+		String keepGoing = "y"; //more transactions?
+		String action; //deposit or withdraw
+		double amount; //how much to deposit or withdraw
+		long acctNumber; //which account to access
+
+		Scanner scan = new Scanner(System.in);
+
+		// Create two accounts
+		acct1 = new Account(1000, "Sue", 123);
+		acct2 = new Account(1000, "Joe", 456);
+
+		System.out.println( "The following accounts are available: \n" );
+		acct1.printSummary();
+		System.out.println();
+		acct2.printSummary();
+
+		while (keepGoing.equals("y") || keepGoing.equals("y")) {
+
+			// get account number, what to do, and amount
+			System.out.print("\nEnter the number of the account you would like to access: ");
+			acctNumber = scan.nextLong();
+
+			System.out.print("Would you like to make a deposit (D) or withdrawal(W) ? ");
+			action = scan.next();
+
+			System.out.print("Enter the amount: ");
+			amount = scan.nextDouble();
+
+			if (amount > 0)
+			if (acctNumber == acct1.getAcctNumber())
+			if (action.equals("w") || action.equals("W"))
+				acct1.withdraw(amount);
+			else if (action.equals("d") || action.equals("D"))
+				acct1.deposit(amount);
+			else
+				System.out.println("Sorry, invalid action.");
+			else if (acctNumber == acct2.getAcctNumber())
+				if (action.equals("w") || action.equals("W"))
+					acct1.withdraw(amount);
+				else if (action.equals("d") || action.equals("D"))
+					acct1.deposit(amount);
+				else
+					System.out.println( "Sorry, invalid action. ");
+				else
+					System.out.println( "Sorry, invalid account number. ");
+				else
+					System.out.println("Sorry, amount must be > 0 . ");
+
+			System.out.print("\nMore transactions? (y/n)");
+			keepGoing = scan.next();
+		}
+
+		// Print number of deposits
+		// Print number of withdrawals
+		// Print total amount of deposits
+		// Print total amount of withdrawals
+	}
+}
