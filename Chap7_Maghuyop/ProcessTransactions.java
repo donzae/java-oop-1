@@ -51,9 +51,9 @@ public class ProcessTransactions {
 					}
 				} else if (acctNumber == acct2.getAcctNumber()) {
 					if (action.equals("w") || action.equals("W")) {
-						acct1.withdraw(amount);
+						acct2.withdraw(amount);
 					} else if (action.equals("d") || action.equals("D")) {
-						acct1.deposit(amount);
+						acct2.deposit(amount);
 					} else {
 						System.out.println( "Sorry, invalid action. ");
 					}
@@ -81,5 +81,12 @@ public class ProcessTransactions {
 
 		// Print total amount of withdrawals
 		System.out.println("Total amount of withdrawals: " + acct1.getTotalWithdrawals());
+
+		// print individual accounts
+		System.out.println("Account Summary: \n");
+		acct1.printSummary();
+		System.out.println();
+		acct2.printSummary();
+
 	}
 }

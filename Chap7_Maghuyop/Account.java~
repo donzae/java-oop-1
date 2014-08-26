@@ -9,9 +9,9 @@
 import java.util.Random;
 
 public class Account {
-	private double balance = 0;
-	private String name = "";
-	private int acctNum = 0;
+	private double balance;
+	private String name;
+	private int acctNum;
 
 	private static double total_deposit = 0;
 	private static double total_withdrawal = 0;
@@ -27,22 +27,19 @@ public class Account {
 	//Constructor -- initializes balance, owner, and account number
 	//-------------------------------------------------
 	public Account(double initBal, String owner, int number) {
-		this.balance = initBal;
+		balance = initBal;
 		name = owner;
-		if(totalAcctNos < acctNums.length) {
-			acctNum = generator.nextInt(number);
-			while(isAccNoDuplicate(acctNum)) {
-				acctNum = generator.nextInt(number);
-			}
-			acctNums[totalAcctNos] = acctNum;
-			totalAcctNos += 1;
+		acctNum = generator.nextInt(number);
+		while(isAccNoDuplicate(acctNum)) {
+			acctNum = generator.nextInt(number);	
 		}
+		acctNums[totalAcctNos + 1] = acctNum;
 	}
 
 	private boolean isAccNoDuplicate(int acctNum) {
 		for(int i = 0; i < acctNums.length; i += 1) {
 			if(acctNums[i] == acctNum) {
-				return true;
+				return true;	
 			}
 		}
 		return false;
@@ -53,8 +50,8 @@ public class Account {
 	// If so, decrements balance by amount; if not, prints message.
 	//-------------------------------------------------
 	public void withdraw(double amount) {
-		if (this.balance >= amount) {
-			this.balance -= amount;
+		if (balance >= amount) {
+			balance -= amount;
 			total_withdrawal += amount;
 			num_withdrawal += 1;
 		} else {
@@ -66,7 +63,7 @@ public class Account {
 	// Adds deposit amount to balance.
 	//-------------------------------------------------
 	public void deposit(double amount) {
-		this.balance += amount;
+		balance += amount;
 		total_deposit += amount;
 		num_deposit += 1;
 	}
@@ -75,7 +72,7 @@ public class Account {
 	// Returns balance.
 	//-------------------------------------------------
 	public double getBalance() {
-		return this.balance;
+		return balance;
 	}
 
 	//-------------------------------------------------
@@ -84,7 +81,7 @@ public class Account {
 	public String toString() {
 		return "Name:" + name +
 		"\nAccount Number: " + acctNum +
-		"\nBalance: " + this.balance;
+		"\nBalance: " + balance;
 	}
 
 	public int getAcctNumber() {
