@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=roomNumber
+comment0.target=HotelRoom(int)
+comment1.params=
+comment1.target=int\ getRoomNumber()
+comment2.params=
+comment2.target=double\ getNightlyRentalRate()
+numComments=3
